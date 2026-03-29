@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local First | Anchor Point Consulting</title>
+  <style>
+    :root{
+      --bg-top:#12161c;
+      --bg-bottom:#191e26;
+      --panel:#202631;
+      --panel-2:#262d39;
+      --text:#f7f4ef;
+      --muted:#c7c0b7;
+      --line:rgba(255,255,255,.08);
+      --accent:#0a537f;
+      --salmon:#d88c7a;
+      --salmon-soft:#e7b0a4;
+      --good:#7fb089;
+      --max:1180px;
+      --hero-max:900px;
+      --radius:20px;
+      --shadow:0 16px 40px rgba(0,0,0,.28);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg-top) 0%, var(--bg-bottom) 100%);
+      color:var(--text);
+      line-height:1.6;
+      letter-spacing:.1px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      transition:.2s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+      font:inherit;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:var(--salmon);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(216,140,122,.22);
+    }
+    .btn-primary:hover{
+      background:var(--salmon-soft);
+      color:#17202a;
+    }
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border-color:rgba(216,140,122,.35);
+    }
+    .btn-secondary:hover{
+      background:rgba(216,140,122,.08);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(18,22,28,.78);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:76px;
+      gap:16px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .brand-sub{
+      font-size:.84rem;
+      color:var(--muted);
+      font-weight:600;
+      margin-top:2px;
+    }
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:18px;
+      margin:0;
+      padding:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    nav a:hover{color:var(--text)}
+
+    .hero{
+      padding:108px 0 70px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:34px;
+      transform:translateX(-50%);
+      width:560px;
+      height:560px;
+      background:radial-gradient(circle, rgba(216,140,122,.10), transparent 68%);
+      pointer-events:none;
+      filter:blur(20px);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+    .eyebrow{
+      display:inline-block;
+      background:rgba(216,140,122,.12);
+      color:#f0b7ab;
+      border:1px solid rgba(216,140,122,.28);
+      padding:8px 13px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+    h1{
+      font-size:clamp(2.6rem, 5vw, 4.9rem);
+      line-height:1.02;
+      margin:0 0 14px;
+      letter-spacing:-1.2px;
+      max-width:720px;
+    }
+    .hero-copy p{
+      color:var(--muted);
+      font-size:1.08rem;
+      max-width:760px;
+      margin:0 0 26px;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:24px;
+    }
+    .mini-points{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      max-width:760px;
+    }
+    .mini-points span{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(216,140,122,.2);
+      color:var(--muted);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.85rem;
+    }
+
+    .hero-panel,
+    .card,
+    .cta,
+    .form-shell{
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-panel{
+      border-radius:24px;
+      padding:28px;
+    }
+    .hero-panel h3{
+      margin:0 0 10px;
+      font-size:1.15rem;
+    }
+    .hero-panel p,
+    .hero-panel li{
+      color:var(--muted);
+    }
+    .hero-panel ul{
+      margin:16px 0 0;
+      padding-left:18px;
+    }
+
+    section{padding:42px 0}
+    .section-head{
+      margin-bottom:20px;
+      max-width:820px;
+    }
+    .section-head h2{
+      margin:0 0 8px;
+      font-size:clamp(1.7rem,2.2vw,2.35rem);
+      letter-spacing:-.7px;
+      line-height:1.12;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      max-width:760px;
+    }
+
+    .grid-3,
+    .grid-2{
+      display:grid;
+      gap:18px;
+    }
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+
+    .card{
+      border-radius:var(--radius);
+      padding:24px;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.08rem;
+      letter-spacing:-.2px;
+    }
+    .card p,
+    .card li{
+      color:var(--muted);
+      margin:0;
+    }
+    .card ul{
+      margin:14px 0 0;
+      padding-left:18px;
+    }
+
+    .criteria-list li + li,
+    .what-you-get li + li{margin-top:8px}
+
+    .steps{
+      counter-reset:step;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .step{
+      position:relative;
+      padding:24px 22px 22px;
+      border-radius:20px;
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .step::before{
+      counter-increment:step;
+      content:counter(step);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      background:rgba(216,140,122,.16);
+      border:1px solid rgba(216,140,122,.3);
+      color:#f0b7ab;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+    .step h3{
+      margin:0 0 8px;
+      font-size:1.02rem;
+    }
+    .step p{margin:0;color:var(--muted)}
+
+    .cta{
+      border-radius:24px;
+      padding:30px;
+      background:linear-gradient(135deg, rgba(10,83,127,.35) 0%, rgba(38,45,57,1) 54%, rgba(216,140,122,.18) 100%);
+    }
+    .cta h2{
+      margin:0 0 10px;
+      font-size:clamp(1.9rem,2.8vw,2.7rem);
+      letter-spacing:-.9px;
+      line-height:1.08;
+    }
+    .cta p{
+      margin:0 0 18px;
+      color:var(--muted);
+      max-width:760px;
+    }
+
+    .form-shell{
+      border-radius:24px;
+      padding:28px;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+    .field-full{grid-column:1 / -1}
+    label{
+      display:block;
+      font-size:.9rem;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--text);
+    }
+    input, select, textarea{
+      width:100%;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      padding:14px 16px;
+      font:inherit;
+    }
+    textarea{min-height:130px;resize:vertical}
+    .fine-print{
+      margin-top:14px;
+      font-size:.88rem;
+      color:var(--muted);
+    }
+    .note-box{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(127,176,137,.09);
+      border:1px solid rgba(127,176,137,.22);
+      color:var(--muted);
+    }
+
+    footer{
+      padding:28px 0 44px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    .footer-line{
+      border-top:1px solid rgba(216,140,122,.16);
+      padding-top:18px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .steps,
+      .form-grid{grid-template-columns:1fr}
+      nav ul{display:none}
+      .hero{padding:82px 0 52px}
+      h1{font-size:clamp(2.2rem, 10vw, 3.4rem)}
+      .hero-copy p{font-size:1.02rem}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div>Anchor Point Consulting</div>
+        <div class="brand-sub">Local First Program</div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#criteria">Criteria</a></li>
+          <li><a href="#included">What’s Included</a></li>
+          <li><a href="#apply">Apply</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Community Support Through Practical Operational Help</div>
+          <h1>Supporting local organizations by strengthening the work behind the mission.</h1>
+          <p>
+            Local First is an Anchor Point Consulting program for community-based organizations serving local needs. It is designed for groups doing direct support work in areas like food access, housing stability, homelessness response, family support, recovery, youth services, elder services, and neighborhood-based community care. Selected organizations receive a free operational review and one practical process improvement at no cost.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#apply">Apply for Review</a>
+            <a class="btn btn-secondary" href="#criteria">See Criteria</a>
+          </div>
+
+          <div class="mini-points">
+            <span>Free audit / consult</span>
+            <span>One free process improvement</span>
+            <span>Community-serving organizations only</span>
+            <span>Practical, not overbuilt</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <h3>What Local First is designed for</h3>
+          <p>
+            This program is for community-serving organizations working close to the ground in local communities. That includes groups such as food pantries, shelters, housing support organizations, elder services, family support programs, youth organizations, recovery and behavioral health support programs, and other direct-service community organizations.
+          </p>
+          <ul>
+            <li>Food, meal, and basic-needs support organizations</li>
+            <li>Housing, homelessness, and stabilization programs</li>
+            <li>Health, family support, behavioral health, and recovery organizations</li>
+            <li>Elder, disability, youth, and neighborhood community support groups</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>About the Program</h2>
+          <p>
+            Local First exists to help community-based organizations improve how work gets done without forcing them into a full consulting engagement up front. The goal is to identify one meaningful area of wasted time, confusion, or rework and make a practical improvement that helps the organization serve people more effectively.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Why APC offers this</h3>
+            <p>
+              Many community organizations are doing essential work with limited time, limited staff, and limited operational support. Local First is APC’s way of contributing directly to the community by helping these organizations reduce wasted time, improve key processes, and strengthen the work they already do for local people.
+            </p>
+          </div>
+          <div class="card">
+            <h3>What makes a good fit</h3>
+            <p>
+              The strongest candidates are community-serving organizations with a clear operational pain point, a real need for process improvement, and a practical opportunity to save staff time or reduce friction in the delivery of services.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="criteria">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Selection Criteria</h2>
+          <p>
+            Local First is intended for community-serving organizations where a focused improvement can make a clear difference. Submission does not guarantee selection. Applications are reviewed based on mission fit, level of community impact, operational need, and whether the problem is realistic for the scope of the program.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Organization Type</h3>
+            <ul class="criteria-list">
+              <li>Food pantry, shelter, housing support, or stabilization program</li>
+              <li>Family support, recovery, health access, elder, disability, or youth-serving organization</li>
+              <li>Local nonprofit, church-based outreach program, or direct-service community group</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Problem Fit</h3>
+            <ul class="criteria-list">
+              <li>Time is being lost to manual work, rework, confusion, or poor workflow design</li>
+              <li>The issue affects day-to-day service delivery, staff capacity, coordination, or internal operations</li>
+              <li>The work can likely be improved through a focused, practical intervention</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Readiness</h3>
+            <ul class="criteria-list">
+              <li>Someone is available to explain the current process clearly</li>
+              <li>The organization is willing to test or adopt a reasonable improvement</li>
+              <li>The request is focused enough to fit the program scope and support one meaningful improvement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="included">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>What’s Included</h2>
+          <p>
+            Selected organizations receive a limited but useful engagement focused on one problem area. The point is not to deliver a large transformation project. The point is to solve one real operational problem well in a way that supports the organization’s ability to serve the community.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Included at no cost</h3>
+            <ul class="what-you-get">
+              <li>One free operational audit / consult</li>
+              <li>Review of an existing workflow, recurring task, or internal process</li>
+              <li>One focused process improvement, workflow adjustment, or lightweight internal tool recommendation</li>
+              <li>Clear summary of findings and next-step recommendation</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Not included</h3>
+            <ul class="what-you-get">
+              <li>Large multi-phase consulting projects</li>
+              <li>Open-ended ongoing support</li>
+              <li>Custom software builds outside the agreed scope</li>
+              <li>Anything requiring broad organizational change across many departments at once</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How It Works</h2>
+          <p>
+            The process is straightforward. APC reviews submissions, selects organizations that fit the program, and then scopes one practical improvement area.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <h3>Apply</h3>
+            <p>Submit your organization’s basic information and describe the operational problem you want reviewed.</p>
+          </div>
+          <div class="step">
+            <h3>Review</h3>
+            <p>APC reviews submissions for fit, scope, and readiness. Not every request will be selected.</p>
+          </div>
+          <div class="step">
+            <h3>Consult</h3>
+            <p>If selected, APC schedules a conversation to understand the current process, pain points, and constraints.</p>
+          </div>
+          <div class="step">
+            <h3>Improve</h3>
+            <p>One focused process improvement or practical recommendation is delivered based on the agreed problem area.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply">
+      <div class="wrap">
+        <div class="cta">
+          <h2>Apply for the Local First program.</h2>
+          <p>
+            Use the form below to submit your organization for review. Applications should focus on one operational issue that is wasting time, creating confusion, or making service delivery harder than it needs to be.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="form-shell">
+          <form action="https://formspree.redacted" method="POST">
+            <input type="hidden" name="program" value="Local First">
+
+            <div class="form-grid">
+              <div>
+                <label for="org-name">Organization Name</label>
+                <input id="org-name" name="organization_name" type="text" required>
+              </div>
+
+              <div>
+                <label for="contact-name">Primary Contact</label>
+                <input id="contact-name" name="contact_name" type="text" required>
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+              </div>
+
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="text">
+              </div>
+
+              <div>
+                <label for="org-type">Organization Type</label>
+                <select id="org-type" name="organization_type" required>
+                  <option value="">Select one</option>
+                  <option>Food / Basic Needs / Community Support</option>
+                  <option>Housing / Homelessness / Stabilization</option>
+                  <option>Health / Family Support / Recovery</option>
+                  <option>Elder / Disability / Youth / Community Support</option>
+                  <option>Church-Based or Faith-Based Outreach</option>
+                  <option>Other Community-Based Organization</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="staff-size">Approximate Team Size</label>
+                <select id="staff-size" name="team_size" required>
+                  <option value="">Select one</option>
+                  <option>1–5</option>
+                  <option>6–10</option>
+                  <option>11–25</option>
+                  <option>26–50</option>
+                  <option>50+</option>
+                </select>
+              </div>
+
+              <div class="field-full">
+                <label for="problem">What operational problem do you want help with in your organization?</label>
+                <textarea id="problem" name="problem_summary" required placeholder="Describe the recurring task, workflow issue, service coordination problem, reporting problem, or process breakdown you want reviewed."></textarea>
+              </div>
+
+              <div class="field-full">
+                <label for="impact">How is this affecting your staff, workflow, or ability to serve people?</label>
+                <textarea id="impact" name="impact_summary" required placeholder="Explain what time is being lost, where confusion happens, or how the current process is making service delivery harder."></textarea>
+              </div>
+
+              <div class="field-full">
+                <label for="current-tools">What tools or systems are currently involved?</label>
+                <textarea id="current-tools" name="current_tools" placeholder="Examples: Excel, paper forms, email, shared drives, portal systems, manual tracking, etc."></textarea>
+              </div>
+
+              <div class="field-full">
+                <label for="readiness">Why is now a good time to address this?</label>
+                <textarea id="readiness" name="readiness" placeholder="Optional, but useful for prioritization."></textarea>
+              </div>
+            </div>
+
+            <p class="fine-print">
+              Submission does not guarantee selection. APC reviews each application individually and may follow up for clarification before making a decision.
+            </p>
+
+            <button class="btn btn-primary" type="submit">Submit Application</button>
+          </form>
+
+          
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-line">
+      <div>© 2026 Anchor Point Consulting. All rights reserved.</div>
+      <div>apcquality.com | stephen@apcquality.com</div>
+    </div>
+  </footer>
+</body>
+</html>
