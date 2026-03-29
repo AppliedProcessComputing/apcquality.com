@@ -24,9 +24,13 @@
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
     body{
       margin:0;
+      overflow-x:hidden;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       background:linear-gradient(180deg,var(--bg-top) 0%, var(--bg-bottom) 100%);
       color:var(--text);
@@ -34,8 +38,18 @@
       letter-spacing:.1px;
     }
 
+    img, svg, video, canvas{
+      max-width:100%;
+      height:auto;
+    }
+
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+    .wrap{
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 24px;
+    }
 
     .btn{
       display:inline-block;
@@ -44,6 +58,7 @@
       font-weight:700;
       transition:.2s ease;
       border:1px solid transparent;
+      text-align:center;
     }
     .btn:hover{transform:translateY(-1px)}
     .btn-primary{
@@ -78,6 +93,7 @@
       justify-content:space-between;
       min-height:76px;
       gap:16px;
+      min-width:0;
     }
     .brand{
       display:flex;
@@ -85,12 +101,27 @@
       gap:14px;
       font-weight:800;
       letter-spacing:.2px;
+      min-width:0;
+      flex:1 1 auto;
+    }
+    .brand-text{
+      min-width:0;
+    }
+    .brand-name{
+      font-size:1rem;
+      line-height:1.15;
+      overflow-wrap:anywhere;
     }
     .brand-sub{
       font-size:.84rem;
       color:var(--muted);
       font-weight:600;
       margin-top:2px;
+      line-height:1.25;
+      overflow-wrap:anywhere;
+    }
+    nav{
+      flex:0 0 auto;
     }
     nav ul{
       list-style:none;
@@ -126,11 +157,13 @@
       margin:0 auto;
       position:relative;
       z-index:1;
+      min-width:0;
     }
     .hero-copy{
       padding:16px 0;
       text-align:center;
       margin:0 auto;
+      min-width:0;
     }
     .eyebrow{
       display:inline-block;
@@ -142,6 +175,7 @@
       font-size:.82rem;
       font-weight:700;
       margin-bottom:20px;
+      max-width:100%;
     }
     h1{
       font-size:clamp(2.7rem, 5vw, 5rem);
@@ -151,6 +185,7 @@
       max-width:780px;
       margin-left:auto;
       margin-right:auto;
+      overflow-wrap:anywhere;
     }
     .hero p{
       color:var(--muted);
@@ -167,32 +202,33 @@
     }
 
     .hero-subnote-wrap{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:14px;
-    margin: 6px 0 24px;
-  }
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      margin:6px 0 24px;
+      min-width:0;
+    }
 
-  .hero-subnote{
-    margin:0;
-    font-size:0.78rem;
-    font-weight:700;
-    letter-spacing:.24em;
-    text-transform:uppercase;
-    color:var(--muted);
-    opacity:.9;
-    white-space:nowrap;
-  }
+    .hero-subnote{
+      margin:0;
+      font-size:0.78rem;
+      font-weight:700;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      color:var(--muted);
+      opacity:.9;
+      white-space:nowrap;
+    }
 
-  .hero-subnote-line{
-  width:82px;
-  height:1px;
-  background:rgba(216,140,122,.32);
-  box-shadow:0 0 10px rgba(216,140,122,.15);
+    .hero-subnote-line{
+      width:82px;
+      height:1px;
+      flex:0 1 82px;
+      background:rgba(216,140,122,.32);
+      box-shadow:0 0 10px rgba(216,140,122,.15);
+    }
 
-    
-  }
     .mini-points{
       display:flex;
       flex-wrap:wrap;
@@ -244,6 +280,7 @@
     .card{
       border-radius:var(--radius);
       padding:24px;
+      min-width:0;
     }
     .card h3{
       margin:0 0 10px;
@@ -309,34 +346,116 @@
 
     @media (max-width: 900px){
       .grid-3,
-      .grid-2{grid-template-columns:1fr}
-      nav ul{display:none}
-      .hero{padding:82px 0 52px}
-      h1{font-size:clamp(2.2rem, 10vw, 3.4rem)}
-      .hero p{font-size:1.02rem}
-    
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+
+      nav ul{
+        display:none;
+      }
+
+      .wrap{
+        padding:0 18px;
+      }
+
       .nav{
         justify-content:center;
-        min-width:0;
+        text-align:center;
+        min-height:auto;
+        padding:14px 0;
       }
-    
+
       .brand{
         width:100%;
-        text-align:center;
         justify-content:center;
-        min-width:0;
+        text-align:center;
       }
-    
-      .brand div:first-child{
-        font-size:0.95rem;
-        line-height:1.2;
-        word-break:break-word;
+
+      .brand-name{
+        font-size:.95rem;
       }
-    
+
       .brand-sub{
         text-align:center;
-        font-size:0.78rem;
-        line-height:1.2;
+        font-size:.74rem;
+      }
+
+      .hero{
+        padding:72px 0 48px;
+      }
+
+      h1{
+        font-size:clamp(1.9rem, 9vw, 2.8rem);
+        line-height:1.02;
+        letter-spacing:-1px;
+        margin-bottom:16px;
+      }
+
+      .hero p{
+        font-size:1rem;
+        margin-bottom:24px;
+      }
+
+      .hero-subnote-wrap{
+        gap:10px;
+        margin:4px 0 20px;
+      }
+
+      .hero-subnote{
+        font-size:.64rem;
+        letter-spacing:.18em;
+        white-space:normal;
+        text-align:center;
+      }
+
+      .hero-subnote-line{
+        width:34px;
+        flex-basis:34px;
+      }
+
+      .hero-actions{
+        gap:10px;
+        margin-bottom:22px;
+      }
+
+      .btn{
+        width:100%;
+        max-width:320px;
+      }
+
+      .mini-points{
+        gap:8px;
+      }
+
+      .mini-points span{
+        font-size:.8rem;
+      }
+
+      .cta{
+        padding:24px 20px;
+      }
+    }
+
+    @media (max-width: 520px){
+      .eyebrow{
+        font-size:.74rem;
+        padding:7px 11px;
+      }
+
+      h1{
+        font-size:clamp(1.8rem, 8.5vw, 2.35rem);
+      }
+
+      .section-head h2{
+        font-size:1.55rem;
+      }
+
+      .card{
+        padding:20px;
+      }
+
+      .footer-line{
+        flex-direction:column;
       }
     }
   </style>
@@ -345,8 +464,8 @@
   <header>
     <div class="wrap nav">
       <div class="brand">
-        <div>
-          <div>Anchor Point<br>Consulting</div>
+        <div class="brand-text">
+          <div class="brand-name">Anchor Point<br>Consulting</div>
           <div class="brand-sub">Workplace systems and efficiency support for small organizations</div>
         </div>
       </div>
@@ -370,11 +489,13 @@
         <div class="hero-copy">
           <div class="eyebrow">Operational Improvement for Small Teams</div>
           <h1>Anchor Point<br>Consulting</h1>
+
           <div class="hero-subnote-wrap">
-    <span class="hero-subnote-line"></span>
-    <p class="hero-subnote">Veteran Owned &amp; Operated</p>
-    <span class="hero-subnote-line"></span>
-  </div>
+            <span class="hero-subnote-line"></span>
+            <p class="hero-subnote">Veteran Owned &amp; Operated</p>
+            <span class="hero-subnote-line"></span>
+          </div>
+
           <p>
             Anchor Point Consulting helps small businesses and nonprofit organizations reduce lost labor, improve workplace efficiency, and fix broken or time-consuming processes. APC focuses on practical systems, workflow improvements, and useful tools that make day-to-day operations easier, clearer, and more sustainable.
           </p>
@@ -432,19 +553,19 @@
 
         <div class="grid-3">
           <div class="card">
-            <h3>Workflow Review & Process Improvement</h3>
+            <h3>Workflow Review &amp; Process Improvement</h3>
             <p>
               Identify bottlenecks, rework, repetitive tasks, and breakdowns in communication or handoff. APC reviews how work currently happens and helps redesign the process so it is faster, clearer, and easier to manage.
             </p>
           </div>
           <div class="card">
-            <h3>Operational Systems & Automation</h3>
+            <h3>Operational Systems &amp; Automation</h3>
             <p>
               Build practical systems that reduce manual effort and improve consistency. This can include tracking tools, internal workflows, structured file systems, automated steps, and lightweight operational support built around the way your organization already works.
             </p>
           </div>
           <div class="card">
-            <h3>Reporting, Visibility & Decision Support</h3>
+            <h3>Reporting, Visibility &amp; Decision Support</h3>
             <p>
               When organizations need better visibility, APC can build reporting tools, dashboards, or structured summaries that make it easier to understand performance, workload, and trends without adding unnecessary complexity.
             </p>
@@ -528,8 +649,6 @@
               Get in Touch
             </button>
           </form>
-
-          
         </div>
       </div>
     </section>
