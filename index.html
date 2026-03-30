@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anchor Point Consulting | Data Clarity & Practical Systems</title>
+  <title>Anchor Point Consulting | Improve How Work Gets Done</title>
   <style>
     :root{
       --bg-top:#12161c;
@@ -18,16 +18,18 @@
       --salmon:#d88c7a;
       --salmon-soft:#e7b0a4;
       --max:1180px;
-      --hero-max:860px;
+      --hero-max:920px;
       --radius:20px;
       --shadow:0 16px 40px rgba(0,0,0,.28);
     }
 
     *{box-sizing:border-box}
+
     html{
       scroll-behavior:smooth;
       overflow-x:hidden;
     }
+
     body{
       margin:0;
       overflow-x:hidden;
@@ -38,12 +40,8 @@
       letter-spacing:.1px;
     }
 
-    img, svg, video, canvas{
-      max-width:100%;
-      height:auto;
-    }
-
     a{color:inherit;text-decoration:none}
+
     .wrap{
       width:100%;
       max-width:var(--max);
@@ -60,21 +58,26 @@
       border:1px solid transparent;
       text-align:center;
     }
+
     .btn:hover{transform:translateY(-1px)}
+
     .btn-primary{
       background:var(--salmon);
       color:#fff;
       box-shadow:0 10px 24px rgba(216,140,122,.22);
     }
+
     .btn-primary:hover{
       background:var(--salmon-soft);
       color:#17202a;
     }
+
     .btn-secondary{
       background:transparent;
       color:var(--text);
       border-color:rgba(216,140,122,.35);
     }
+
     .btn-secondary:hover{
       background:rgba(216,140,122,.08);
     }
@@ -87,6 +90,7 @@
       backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(255,255,255,.05);
     }
+
     .nav{
       display:flex;
       align-items:center;
@@ -95,34 +99,27 @@
       gap:16px;
       min-width:0;
     }
+
     .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      font-weight:800;
-      letter-spacing:.2px;
       min-width:0;
       flex:1 1 auto;
     }
-    .brand-text{
-      min-width:0;
-    }
+
     .brand-name{
       font-size:1rem;
-      line-height:1.15;
-      overflow-wrap:anywhere;
+      line-height:1.12;
+      font-weight:800;
+      letter-spacing:.2px;
     }
+
     .brand-sub{
       font-size:.84rem;
       color:var(--muted);
       font-weight:600;
-      margin-top:2px;
+      margin-top:4px;
       line-height:1.25;
-      overflow-wrap:anywhere;
     }
-    nav{
-      flex:0 0 auto;
-    }
+
     nav ul{
       list-style:none;
       display:flex;
@@ -132,24 +129,27 @@
       color:var(--muted);
       font-size:.95rem;
     }
+
     nav a:hover{color:var(--text)}
 
     .hero{
       padding:112px 0 72px;
       position:relative;
     }
+
     .hero::after{
       content:"";
       position:absolute;
       left:50%;
       top:38px;
       transform:translateX(-50%);
-      width:520px;
-      height:520px;
+      width:560px;
+      height:560px;
       background:radial-gradient(circle, rgba(216,140,122,.08), transparent 68%);
       pointer-events:none;
       filter:blur(18px);
     }
+
     .hero-grid{
       display:grid;
       grid-template-columns:1fr;
@@ -157,14 +157,14 @@
       margin:0 auto;
       position:relative;
       z-index:1;
-      min-width:0;
     }
+
     .hero-copy{
       padding:16px 0;
       text-align:center;
       margin:0 auto;
-      min-width:0;
     }
+
     .eyebrow{
       display:inline-block;
       background:rgba(216,140,122,.12);
@@ -175,30 +175,23 @@
       font-size:.82rem;
       font-weight:700;
       margin-bottom:20px;
-      max-width:100%;
     }
+
     h1{
       font-size:clamp(2.7rem, 5vw, 5rem);
       line-height:1.02;
       margin:0 0 18px;
       letter-spacing:-1.35px;
-      max-width:780px;
+      max-width:800px;
       margin-left:auto;
       margin-right:auto;
-      overflow-wrap:anywhere;
     }
-    .hero p{
+
+    .hero-lead{
       color:var(--muted);
-      font-size:1.1rem;
-      max-width:760px;
-      margin:0 auto 30px;
-    }
-    .hero-actions{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-bottom:28px;
+      font-size:1.12rem;
+      max-width:780px;
+      margin:0 auto 28px;
     }
 
     .hero-subnote-wrap{
@@ -207,12 +200,11 @@
       justify-content:center;
       gap:14px;
       margin:6px 0 24px;
-      min-width:0;
     }
 
     .hero-subnote{
       margin:0;
-      font-size:0.78rem;
+      font-size:.78rem;
       font-weight:700;
       letter-spacing:.24em;
       text-transform:uppercase;
@@ -229,6 +221,14 @@
       box-shadow:0 0 10px rgba(216,140,122,.15);
     }
 
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:24px;
+    }
+
     .mini-points{
       display:flex;
       flex-wrap:wrap;
@@ -237,6 +237,7 @@
       max-width:760px;
       margin:0 auto;
     }
+
     .mini-points span{
       background:rgba(255,255,255,.03);
       border:1px solid rgba(216,140,122,.2);
@@ -246,51 +247,88 @@
       font-size:.85rem;
     }
 
-    section{padding:42px 0}
+    section{padding:44px 0}
+
     .section-head{
-      margin-bottom:20px;
+      margin-bottom:22px;
       max-width:820px;
     }
+
     .section-head h2{
       margin:0 0 8px;
       font-size:clamp(1.7rem,2.2vw,2.35rem);
       letter-spacing:-.7px;
       line-height:1.12;
     }
+
     .section-head p{
       margin:0;
       color:var(--muted);
       max-width:760px;
     }
 
+    .grid-2,
     .grid-3,
-    .grid-2{
+    .stats-grid{
       display:grid;
       gap:18px;
     }
-    .grid-3{grid-template-columns:repeat(3,1fr)}
+
     .grid-2{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .stats-grid{grid-template-columns:repeat(3,1fr)}
 
     .card,
-    .cta{
+    .cta,
+    .stat{
       background:linear-gradient(180deg,var(--panel),var(--panel-2));
       border:1px solid var(--line);
       box-shadow:var(--shadow);
     }
-    .card{
+
+    .card,
+    .stat{
       border-radius:var(--radius);
       padding:24px;
-      min-width:0;
     }
+
     .card h3{
       margin:0 0 10px;
       font-size:1.08rem;
       letter-spacing:-.2px;
     }
-    .card p,
-    .card li{
+
+    .card p{
       color:var(--muted);
       margin:0;
+    }
+
+    .stat{
+      text-align:left;
+    }
+
+    .stat-number{
+      font-size:2rem;
+      font-weight:800;
+      line-height:1;
+      margin-bottom:10px;
+      letter-spacing:-.8px;
+      color:var(--text);
+    }
+
+    .stat p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .proof-copy{
+      margin-top:18px;
+      max-width:820px;
+      color:var(--muted);
+    }
+
+    .proof-copy p{
+      margin:0 0 14px;
     }
 
     .cta{
@@ -298,12 +336,14 @@
       padding:30px;
       background:linear-gradient(135deg, rgba(10,83,127,.35) 0%, rgba(38,45,57,1) 54%, rgba(216,140,122,.18) 100%);
     }
+
     .cta h2{
       margin:0 0 10px;
       font-size:clamp(1.9rem,2.8vw,2.7rem);
       letter-spacing:-.9px;
       line-height:1.08;
     }
+
     .cta p{
       margin:0 0 18px;
       color:var(--muted);
@@ -313,8 +353,9 @@
     .contact-form{
       display:grid;
       gap:12px;
-      margin:22px 0 18px;
+      margin:22px 0 0;
     }
+
     .contact-form input,
     .contact-form textarea{
       width:100%;
@@ -325,6 +366,7 @@
       padding:14px 16px;
       font:inherit;
     }
+
     .contact-form textarea{
       min-height:140px;
       resize:vertical;
@@ -335,6 +377,7 @@
       color:var(--muted);
       font-size:.92rem;
     }
+
     .footer-line{
       border-top:1px solid rgba(216,140,122,.16);
       padding-top:18px;
@@ -345,8 +388,9 @@
     }
 
     @media (max-width: 900px){
+      .grid-2,
       .grid-3,
-      .grid-2{
+      .stats-grid{
         grid-template-columns:1fr;
       }
 
@@ -367,7 +411,6 @@
 
       .brand{
         width:100%;
-        justify-content:center;
         text-align:center;
       }
 
@@ -376,22 +419,20 @@
       }
 
       .brand-sub{
-        text-align:center;
         font-size:.74rem;
       }
 
       .hero{
-        padding:72px 0 48px;
+        padding:74px 0 50px;
       }
 
       h1{
-        font-size:clamp(1.9rem, 9vw, 2.8rem);
-        line-height:1.02;
+        font-size:clamp(1.95rem, 9vw, 2.9rem);
         letter-spacing:-1px;
         margin-bottom:16px;
       }
 
-      .hero p{
+      .hero-lead{
         font-size:1rem;
         margin-bottom:24px;
       }
@@ -415,20 +456,11 @@
 
       .hero-actions{
         gap:10px;
-        margin-bottom:22px;
       }
 
       .btn{
         width:100%;
         max-width:320px;
-      }
-
-      .mini-points{
-        gap:8px;
-      }
-
-      .mini-points span{
-        font-size:.8rem;
       }
 
       .cta{
@@ -450,7 +482,8 @@
         font-size:1.55rem;
       }
 
-      .card{
+      .card,
+      .stat{
         padding:20px;
       }
 
@@ -464,19 +497,16 @@
   <header>
     <div class="wrap nav">
       <div class="brand">
-        <div class="brand-text">
-          <div class="brand-name">Anchor Point<br>Consulting</div>
-          <div class="brand-sub">Workplace systems and efficiency support for small organizations</div>
-        </div>
+        <div class="brand-name">Anchor Point<br>Consulting</div>
+        <div class="brand-sub">Operational improvement for small businesses and community-focused organizations</div>
       </div>
 
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#proof">Why It Matters</a></li>
+          <li><a href="#services">How APC Helps</a></li>
           <li><a href="local_first.html">Local First</a></li>
-          <li><a href="#security">Security</a></li>
-          <li><a href="#process">Process</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -487,8 +517,8 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">Operational Improvement for Small Teams</div>
-          <h1>Anchor Point<br>Consulting</h1>
+          <div class="eyebrow">Practical Help for Organizations Doing Real Work</div>
+          <h1>Improve how work gets done.</h1>
 
           <div class="hero-subnote-wrap">
             <span class="hero-subnote-line"></span>
@@ -496,21 +526,21 @@
             <span class="hero-subnote-line"></span>
           </div>
 
-          <p>
-            Anchor Point Consulting helps small businesses and nonprofit organizations reduce lost labor, improve workplace efficiency, and fix broken or time-consuming processes. APC focuses on practical systems, workflow improvements, and useful tools that make day-to-day operations easier, clearer, and more sustainable.
+          <p class="hero-lead">
+            Anchor Point Consulting helps small businesses and community-focused organizations reduce lost labor, improve day-to-day operations, and fix the processes that quietly waste time, energy, and money.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Start a Conversation</a>
-            <a class="btn btn-secondary" href="#services">View Services</a>
+            <a class="btn btn-secondary" href="#services">How APC Helps</a>
             <a class="btn btn-secondary" href="local_first.html">Local First</a>
           </div>
 
           <div class="mini-points">
-            <span>Lost Labor Reduction</span>
-            <span>Workflow Improvement</span>
             <span>Practical Systems</span>
-            <span>Privacy-First Design</span>
+            <span>Workflow Improvement</span>
+            <span>Lost Labor Reduction</span>
+            <span>Privacy-Conscious Design</span>
           </div>
         </div>
       </div>
@@ -519,25 +549,63 @@
     <section id="about">
       <div class="wrap">
         <div class="section-head">
-          <h2>WHY APC</h2>
+          <h2>What APC does</h2>
           <p>
-            Many small organizations lose time and money to avoidable friction: manual work, unclear processes, duplicate data entry, weak handoffs, scattered files, and systems that do not match how the team actually works. Anchor Point Consulting exists to identify those problems, simplify them, and build practical solutions that reduce wasted effort and help organizations run more effectively.
+            Anchor Point Consulting helps organizations find the work that slows everything down and improve it.
           </p>
         </div>
 
         <div class="grid-2">
           <div class="card">
-            <h3>Built Around Real Work</h3>
+            <h3>Fix what wastes time</h3>
             <p>
-              APC is not built around selling complexity. The focus is on understanding how work is actually getting done, where time is being lost, and what changes will make the biggest operational difference for your team.
+              That might be a reporting process that takes too long, a manual task that keeps getting repeated, a workflow that breaks down between people, or a system that no longer fits the job.
             </p>
           </div>
+
           <div class="card">
-            <h3>Improvement You Can Maintain</h3>
+            <h3>Make the work behind the mission run better</h3>
             <p>
-              The goal is not to hand you something impressive but fragile. APC builds systems, workflows, and supporting tools that are clear, usable, and realistic for small organizations to maintain over time.
+              APC focuses on practical improvements that save time, reduce confusion, and make daily operations easier to manage without adding unnecessary complexity.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Why this matters</h2>
+          <p>
+            Lost labor rarely comes from one big failure. It usually comes from small problems that happen every day: manual work, duplicated effort, unclear handoffs, and broken processes.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-number">31%</div>
+            <p>of U.S. employees were engaged in 2024, meaning most workers were not fully invested or energized at work.</p>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">60%</div>
+            <p>of work time is often spent on “work about work” like chasing updates, coordination, and other overhead instead of skilled work.</p>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">74.6%</div>
+            <p>of nonprofits reported job vacancies, and 28.1% reported longer waiting lists for services.</p>
+          </div>
+        </div>
+
+        <div class="proof-copy">
+          <p>
+            When teams are already stretched thin, wasted time does not stay behind the scenes. It affects staff capacity, service quality, and how many people an organization can realistically help.
+          </p>
+          <p>
+            That is why improving operations matters.
+          </p>
         </div>
       </div>
     </section>
@@ -545,57 +613,72 @@
     <section id="services">
       <div class="wrap">
         <div class="section-head">
-          <h2>SERVICES</h2>
+          <h2>How APC can help</h2>
           <p>
-            APC helps organizations improve the way work moves through the business. That may mean cleaning up a workflow, reducing manual tasks, improving reporting, organizing operational information, or building a lightweight internal tool. Dashboards and reporting are available when needed, but they are only one part of a broader operational improvement approach.
+            APC helps organizations improve the operational side of their work in ways that are practical, clear, and maintainable.
           </p>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <h3>Workflow Review &amp; Process Improvement</h3>
+            <h3>Improve workflows</h3>
             <p>
-              Identify bottlenecks, rework, repetitive tasks, and breakdowns in communication or handoff. APC reviews how work currently happens and helps redesign the process so it is faster, clearer, and easier to manage.
+              Clean up broken processes, reduce rework, and make handoffs, tracking, and day-to-day operations easier to manage.
             </p>
           </div>
+
           <div class="card">
-            <h3>Operational Systems &amp; Automation</h3>
+            <h3>Reduce manual work</h3>
             <p>
-              Build practical systems that reduce manual effort and improve consistency. This can include tracking tools, internal workflows, structured file systems, automated steps, and lightweight operational support built around the way your organization already works.
+              Simplify repetitive tasks, organize operational systems, and introduce lightweight automation where it makes sense.
             </p>
           </div>
+
           <div class="card">
-            <h3>Reporting, Visibility &amp; Decision Support</h3>
+            <h3>Build the right support</h3>
             <p>
-              When organizations need better visibility, APC can build reporting tools, dashboards, or structured summaries that make it easier to understand performance, workload, and trends without adding unnecessary complexity.
+              Sometimes the answer is a better process. Sometimes it is a clearer system, a simple tool, or improved reporting and visibility.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="security">
+    <section id="difference">
       <div class="wrap">
         <div class="section-head">
-          <h2>SECURITY / PRIVACY</h2>
+          <h2>Why APC feels different</h2>
           <p>
-            APC is built on the principle that organizations should be able to improve their operations without giving up control of their information. Solutions are designed to minimize unnecessary exposure, reduce dependence on outside platforms where possible, and keep systems practical, understandable, and responsible.
+            Many organizations are handed tools that look powerful but are difficult to maintain. APC takes a different approach.
           </p>
         </div>
 
         <div class="grid-2">
           <div class="card">
-            <h3>Your Information Stays Under Your Control</h3>
+            <h3>Built to be useful, not impressive</h3>
             <p>
-              APC does not treat your operational data, files, or business processes as something that must be pushed into external platforms by default. Whenever possible, work is designed around environments and systems your organization already controls.
+              The focus is on building improvements your team can actually use: practical, understandable, lightweight, and built around real workflows.
             </p>
           </div>
+
           <div class="card">
-            <h3>Minimal and Intentional Access</h3>
+            <h3>A business with a community mindset</h3>
             <p>
-              Access is limited to what is needed to complete the work. APC favors straightforward, low-exposure workflows that reduce unnecessary handling, keep systems understandable, and support a conservative security posture.
+              APC is a business, but it is built with respect for limited staff time, real-world constraints, and the organizations doing important work with limited capacity.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="local-first">
+      <div class="wrap">
+        <div class="cta">
+          <h2>Local First</h2>
+          <p>
+            Local First is an APC program for selected community-based organizations to receive a free operational review and one focused improvement at no cost.
+          </p>
+          <a class="btn btn-secondary" href="local_first.html">Learn More About Local First</a>
         </div>
       </div>
     </section>
@@ -603,29 +686,28 @@
     <section id="process">
       <div class="wrap">
         <div class="section-head">
-          <h2>PROCESS</h2>
-          <p>
-            APC follows a structured process focused on understanding the real problem first, then building a practical solution that your team can actually use. The goal is to reduce friction, recover time, and leave the organization with something stable and useful.
-          </p>
+          <h2>A simple process</h2>
         </div>
 
         <div class="grid-3">
           <div class="card">
             <h3>Assess</h3>
             <p>
-              Review current workflows, recurring pain points, manual tasks, and operational weak spots to understand where time and effort are being lost.
+              Understand where time, effort, or clarity is being lost.
             </p>
           </div>
+
           <div class="card">
             <h3>Improve</h3>
             <p>
-              Design and implement practical changes such as process redesign, automation, internal tools, reporting improvements, or more structured systems for getting work done.
+              Design a practical fix that fits the real workflow.
             </p>
           </div>
+
           <div class="card">
             <h3>Stabilize</h3>
             <p>
-              Deliver clear systems, documentation, and support so the improvement lasts beyond the initial project and fits naturally into the organization’s ongoing work.
+              Leave the organization with something clear, useful, and sustainable.
             </p>
           </div>
         </div>
@@ -636,18 +718,15 @@
       <div class="wrap">
         <div class="cta">
           <h2>Let’s improve how work gets done.</h2>
-
           <p>
-            APC works with small businesses and nonprofit organizations that need to improve efficiency, reduce lost labor, and fix operational problems that slow work down. If your team is dealing with repetitive tasks, messy workflows, weak visibility, or systems that no longer fit the job, let’s start a conversation.
+            If your team is dealing with repetitive tasks, messy workflows, weak visibility, or processes that no longer fit the job, let’s start a conversation.
           </p>
 
           <form action="https://formspree.io/f/xqeygwbq" method="POST" class="contact-form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="What operational problem are you trying to solve?" required></textarea>
-            <button class="btn btn-primary" type="submit">
-              Get in Touch
-            </button>
+            <button class="btn btn-primary" type="submit">Get in Touch</button>
           </form>
         </div>
       </div>
