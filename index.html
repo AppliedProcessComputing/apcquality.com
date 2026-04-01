@@ -382,6 +382,136 @@
       background:linear-gradient(90deg, rgba(195,141,104,.15), rgba(195,141,104,.82), rgba(195,141,104,.15));
     }
 
+    .anchor-orb{
+      position:relative;
+      display:grid;
+      place-items:center;
+      isolation:isolate;
+    }
+
+    .orb-core{
+      width:28%;
+      height:28%;
+      border-radius:999px;
+      background:radial-gradient(circle, rgba(255,255,255,.55), rgba(255,255,255,0) 42%);
+      position:relative;
+      z-index:3;
+      opacity:.9;
+    }
+
+    .orb-wave{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%, -50%) scale(.88);
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,.20);
+      opacity:0;
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .wave-1{ width:32%; height:32%; }
+    .wave-2{ width:48%; height:48%; }
+    .wave-3{ width:64%; height:64%; }
+
+    .anchor-orb.is-typing .wave-1{
+      animation:anchorWave 1.4s ease-out infinite;
+    }
+    .anchor-orb.is-typing .wave-2{
+      animation:anchorWave 1.4s ease-out .18s infinite;
+    }
+    .anchor-orb.is-typing .wave-3{
+      animation:anchorWave 1.4s ease-out .36s infinite;
+    }
+
+    @keyframes anchorWave{
+      0%{
+        opacity:.65;
+        transform:translate(-50%, -50%) scale(.78);
+      }
+      100%{
+        opacity:0;
+        transform:translate(-50%, -50%) scale(1.18);
+      }
+    }
+
+    .anchor-box{
+      background:rgba(255,255,255,.38);
+      border:1px solid rgba(32,27,23,.08);
+      border-radius:20px;
+      padding:14px;
+      display:grid;
+      gap:12px;
+    }
+
+    .anchor-box-top{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:.76rem;
+      font-weight:800;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .anchor-status-dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--accent);
+      flex:0 0 10px;
+    }
+
+    .anchor-status-dot.is-active{
+      box-shadow:0 0 0 6px rgba(111,151,181,.12);
+    }
+
+    .anchor-screen{
+      min-height:96px;
+      border-radius:16px;
+      padding:14px;
+      background:rgba(255,255,255,.46);
+      border:1px solid rgba(32,27,23,.06);
+    }
+
+    .anchor-message{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.55;
+    }
+
+    .anchor-prompts{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .anchor-prompt{
+      appearance:none;
+      border:1px solid rgba(111,151,181,.22);
+      background:rgba(111,151,181,.08);
+      color:var(--accent-strong);
+      border-radius:999px;
+      padding:8px 12px;
+      font:inherit;
+      font-size:.82rem;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .anchor-prompt:hover{
+      background:rgba(111,151,181,.16);
+      transform:translateY(-1px);
+    }
+
+    .anchor-prompt:active{
+      transform:translateY(0);
+    }
+
     .side-copy h3{
       margin:0 0 8px;
       font-size:1.08rem;
@@ -768,20 +898,31 @@
         </div>
 
         <div class="hero-side">
-          <div class="orb-panel"></div>
-
-          <div class="side-copy">
-            <h3>Built for practical improvement</h3>
-            <p>
-              Clear systems, stronger workflows, and realistic solutions that help organizations work better without unnecessary complexity.
-            </p>
+          <div class="orb-panel anchor-orb" id="anchorOrb">
+            <div class="orb-core"></div>
+            <div class="orb-wave wave-1"></div>
+            <div class="orb-wave wave-2"></div>
+            <div class="orb-wave wave-3"></div>
           </div>
+          <div class="anchor-box" id="anchorBox">
+            <div class="anchor-box-top">
+              <span class="anchor-status-dot" id="anchorStatusDot"></span>
+              <span class="anchor-status-text" id="anchorStatusText">Site Guide Ready</span>
+            </div>
 
-          <div class="side-tags">
-            <span>Practical systems</span>
-            <span>Workflow improvement</span>
-            <span>Built to last</span>
-          </div>
+            <div class="anchor-screen" id="anchorScreen">
+              <p class="anchor-message">
+                Hello. I can answer a few quick questions about APC and this page.
+              </p>
+            </div>
+
+            <div class="anchor-prompts">
+              <button type="button" class="anchor-prompt" data-anchor-reply="services">What can APC help with?</button>
+              <button type="button" class="anchor-prompt" data-anchor-reply="example">Give me an example</button>
+              <button type="button" class="anchor-prompt" data-anchor-reply="whyapc">Why choose APC?</button>
+              <button type="button" class="anchor-prompt" data-anchor-reply="fit">Who is APC for?</button>
+            </div>
+          </div>  
         </div>
       </div>
     </section>
@@ -1032,5 +1173,52 @@
       <div>apcquality.com | stephen@apcquality.com</div>
     </div>
   </footer>
+<script>
+  (function () {
+    const orb = document.getElementById("anchorOrb");
+    const screen = document.getElementById("anchorScreen");
+    const statusText = document.getElementById("anchorStatusText");
+    const statusDot = document.getElementById("anchorStatusDot");
+    const prompts = document.querySelectorAll(".anchor-prompt");
+
+    const replies = {
+      services: "APC helps organizations improve workflows, reduce manual work, clean up broken processes, organize operational systems, and build practical tools or reporting support when needed.",
+      example: "A common example is a team spending hours every month pulling reports, cleaning spreadsheets, and rebuilding the same information by hand. APC reviews the process, removes unnecessary steps, and creates a more reliable workflow so staff spend less time on admin work and more time on the work that matters.",
+      whyapc: "APC focuses on practical, maintainable improvements instead of pushing unnecessary complexity. The goal is to build systems and workflows your team can actually use, not tools that look impressive but are difficult to manage.",
+      fit: "APC is a good fit for small businesses and community-focused organizations that are losing time to repetitive tasks, unclear workflows, weak visibility, or systems that no longer fit the job."
+    };
+
+    function setThinkingState(isThinking) {
+      if (isThinking) {
+        orb.classList.add("is-typing");
+        statusDot.classList.add("is-active");
+        statusText.textContent = "Responding";
+      } else {
+        orb.classList.remove("is-typing");
+        statusDot.classList.remove("is-active");
+        statusText.textContent = "Site Guide Ready";
+      }
+    }
+
+    function showMessage(text) {
+      screen.innerHTML = '<p class="anchor-message">' + text + '</p>';
+    }
+
+    prompts.forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.getAttribute("data-anchor-reply");
+        const reply = replies[key] || "I can only answer a few simple questions right now.";
+
+        showMessage("...");
+        setThinkingState(true);
+
+        window.setTimeout(() => {
+          showMessage(reply);
+          setThinkingState(false);
+        }, 850);
+      });
+    });
+  })();
+</script>
 </body>
 </html>
