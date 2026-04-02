@@ -73,6 +73,37 @@
     nav a:hover{color:var(--text)}
     nav a:hover::after{transform:scaleX(1)}
 
+    .mobile-menu-toggle{
+      display:none;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(111,151,181,.22);
+      background:rgba(111,151,181,.10);
+      color:var(--accent-strong);
+      font:inherit;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .mobile-menu{
+      display:none;
+      padding:0 26px 16px;
+    }
+
+    .mobile-menu.open{
+      display:grid;
+      gap:10px;
+    }
+
+    .mobile-menu a{
+      display:block;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.36);
+      border:1px solid rgba(32,27,23,.06);
+      color:var(--text);
+    }
+
     .hero{padding:44px 0 26px}
     .hero-shell,.demo-grid,.status-grid{display:grid;gap:18px}
     .hero-shell{grid-template-columns:1.1fr .9fr}
@@ -212,6 +243,16 @@
     @media (max-width: 880px){
       nav ul{display:none}
       .nav{justify-content:center;text-align:center;min-height:auto;padding:14px 0}
+      .mobile-menu-toggle{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .nav{
+        justify-content:space-between;
+        text-align:left;
+      }
       .brand{justify-content:center;text-align:left}
       .btn{width:100%;max-width:320px}
       .form-grid{grid-template-columns:1fr 1fr}
@@ -250,6 +291,7 @@
           <li><a href="#preview">Try Tools</a></li>
         </ul>
       </nav>
+     <button class="mobile-menu-toggle" type="button" onclick="toggleMobileMenu()">Menu</button> 
     </div>
   </header>
 
@@ -658,6 +700,12 @@
     }
 
     initIndexerFilters();
+  </script>
+  <script>
+    function toggleMobileMenu(){
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
   </script>
 </body>
 </html>
