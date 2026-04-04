@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anchor Point Consulting | Improve How Work Gets Done</title>
+  <title>Anchor Point Consulting | Reduce Lost Labor and Improve Daily Operations</title>
   <style>
     :root{
       --bg:#efe7da;
@@ -253,7 +253,8 @@
     .hero-side,
     .card,
     .cta,
-    .stat{
+    .stat,
+    .cost-panel{
       background:linear-gradient(180deg, rgba(246,239,228,.94), rgba(234,223,206,.94));
       border:1px solid rgba(32,27,23,.08);
       box-shadow:var(--shadow);
@@ -266,7 +267,8 @@
     .hero-side::before,
     .card::before,
     .cta::before,
-    .stat::before{
+    .stat::before,
+    .cost-panel::before{
       content:"";
       position:absolute;
       inset:auto auto 0 0;
@@ -278,7 +280,7 @@
 
     .hero-main{
       padding:40px 38px 34px;
-      min-height:520px;
+      min-height:560px;
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -320,18 +322,26 @@
     }
 
     h1{
-      font-size:clamp(3rem, 6vw, 6rem);
+      font-size:clamp(3rem, 6vw, 5.8rem);
       line-height:.95;
       letter-spacing:-.05em;
       margin:0 0 18px;
-      max-width:760px;
+      max-width:820px;
     }
 
     .hero-lead{
       color:var(--muted);
       font-size:1.08rem;
-      max-width:720px;
+      max-width:760px;
+      margin:0 0 18px;
+    }
+
+    .hero-bridge{
       margin:0 0 24px;
+      max-width:760px;
+      color:var(--text);
+      font-size:1.03rem;
+      font-weight:700;
     }
 
     .hero-subnote-wrap{
@@ -500,7 +510,7 @@
     }
 
     .anchor-screen{
-      min-height:96px;
+      min-height:110px;
       border-radius:16px;
       padding:14px;
       background:rgba(255,255,255,.46);
@@ -543,42 +553,11 @@
       transform:translateY(0);
     }
 
-    .side-copy h3{
-      margin:0 0 8px;
-      font-size:1.08rem;
-      letter-spacing:-.02em;
-    }
-
-    .side-copy p{
-      margin:0;
-      color:var(--muted);
-    }
-
-    .side-tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .side-tags span{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:42px;
-      padding:8px 16px;
-      border-radius:999px;
-      font-size:.8rem;
-      background:rgba(255,255,255,.32);
-      border:1px solid rgba(32,27,23,.06);
-      color:var(--muted);
-      text-align:center;
-    }
-
     section{padding:42px 0}
 
     .section-head{
       margin-bottom:22px;
-      max-width:760px;
+      max-width:820px;
     }
 
     .section-head h2{
@@ -591,7 +570,7 @@
     .section-head p{
       margin:0;
       color:var(--muted);
-      max-width:740px;
+      max-width:760px;
     }
 
     .grid-2,
@@ -606,8 +585,52 @@
     .stats-grid{grid-template-columns:repeat(3,1fr)}
 
     .card,
-    .stat{
+    .stat,
+    .cost-panel{
       padding:26px;
+    }
+
+    .cost-panel{
+      margin-top:18px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(111,151,181,.12), transparent 22%),
+        linear-gradient(180deg, rgba(244,239,232,.98), rgba(228,220,208,.98));
+      border-color:rgba(111,151,181,.24);
+    }
+
+    .cost-panel h3{
+      margin:0 0 12px;
+      font-size:1.2rem;
+      letter-spacing:-.03em;
+    }
+
+    .cost-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .cost-item{
+      padding:18px;
+      border-radius:20px;
+      background:rgba(255,255,255,.36);
+      border:1px solid rgba(32,27,23,.06);
+    }
+
+    .cost-item-number{
+      font-size:1.6rem;
+      font-weight:900;
+      letter-spacing:-.04em;
+      line-height:1;
+      margin-bottom:8px;
+      color:var(--accent-strong);
+    }
+
+    .cost-item p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
     }
 
     .card-shape{
@@ -711,7 +734,7 @@
 
     .proof-copy{
       margin-top:18px;
-      max-width:820px;
+      max-width:840px;
       color:var(--muted);
     }
 
@@ -789,7 +812,8 @@
       .hero-shell,
       .grid-2,
       .grid-3,
-      .stats-grid{
+      .stats-grid,
+      .cost-grid{
         grid-template-columns:1fr;
       }
 
@@ -843,7 +867,8 @@
       .hero-side,
       .card,
       .cta,
-      .stat{
+      .stat,
+      .cost-panel{
         padding:20px;
       }
 
@@ -901,51 +926,61 @@
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#proof">Why It Matters</a></li>
+          <li><a href="#cost">The Cost</a></li>
           <li><a href="#services">How APC Helps</a></li>
           <li><a href="local_first.html">Local First</a></li>
           <li><a href="tools.html">Tools</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
       <button class="mobile-menu-toggle" type="button" onclick="toggleMobileMenu()">Menu</button>
     </div>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#about">About</a>
-    <a href="#proof">Why It Matters</a>
-    <a href="#services">How APC Helps</a>
-    <a href="local_first.html">Local First</a>
-    <a href="tools.html">Tools</a>
-    <a href="#contact">Contact</a>
-  </div>
-</header>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" onclick="toggleMobileMenu()">About</a>
+      <a href="#cost" onclick="toggleMobileMenu()">The Cost</a>
+      <a href="#services" onclick="toggleMobileMenu()">How APC Helps</a>
+      <a href="local_first.html">Local First</a>
+      <a href="tools.html">Tools</a>
+      <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+    </div>
+  </header>
 
   <main>
     <section class="hero">
       <div class="wrap hero-shell">
         <div class="hero-main">
-          <div class="eyebrow">Practical Help for Organizations Doing Real Work</div>
-          <h1>Improve how work gets done.</h1>
+          <div class="eyebrow">Practical Help for Teams Losing Time to Bad Process</div>
+
+          <h1>You know that feeling when a simple task is about to take way longer than it should.</h1>
 
           <div class="hero-subnote-wrap">
             <p class="hero-subnote">Veteran Owned &amp; Operated</p>
           </div>
 
           <p class="hero-lead">
-            Anchor Point Consulting helps small businesses and community-focused organizations reduce lost labor, improve day-to-day operations, and fix the processes that quietly waste time, energy, and money.
+            Maybe it is a report you already know will need manual cleanup. A handoff that always turns into back-and-forth. A system everyone works around because it no longer fits the job. A task that should take ten minutes, but never does.
+          </p>
+
+          <p class="hero-bridge">
+            That feeling is not just annoyance. It is lost labor. And lost labor turns into real cost.
+          </p>
+
+          <p class="hero-lead">
+            Anchor Point Consulting helps small businesses and community-focused organizations reduce wasted time, improve day-to-day operations, and fix the workflows that quietly make work slower, harder, and more expensive than it needs to be.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Start a Conversation</a>
-            <a class="btn btn-secondary" href="#services">How APC Helps</a>
+            <a class="btn btn-secondary" href="#cost">See the Hidden Cost</a>
             <a class="btn btn-secondary" href="local_first.html">Local First</a>
           </div>
 
           <div class="mini-points">
-            <span>Practical Systems</span>
-            <span>Workflow Improvement</span>
             <span>Lost Labor Reduction</span>
+            <span>Workflow Improvement</span>
+            <span>Practical Systems</span>
             <span>Privacy-Conscious Design</span>
           </div>
         </div>
@@ -957,6 +992,7 @@
             <div class="orb-wave wave-2"></div>
             <div class="orb-wave wave-3"></div>
           </div>
+
           <div class="anchor-box" id="anchorBox">
             <div class="anchor-box-top">
               <span class="anchor-status-dot" id="anchorStatusDot"></span>
@@ -965,17 +1001,17 @@
 
             <div class="anchor-screen" id="anchorScreen">
               <p class="anchor-message">
-                Hello. I can answer a few quick questions about APC and this page.
+                Hello. I can explain what lost labor is, why bad workflows cost money, and how APC helps fix it.
               </p>
             </div>
 
             <div class="anchor-prompts">
-              <button type="button" class="anchor-prompt" data-anchor-reply="services">What can APC help with?</button>
-              <button type="button" class="anchor-prompt" data-anchor-reply="example">Give me an example</button>
-              <button type="button" class="anchor-prompt" data-anchor-reply="whyapc">Why choose APC?</button>
-              <button type="button" class="anchor-prompt" data-anchor-reply="fit">Who is APC for?</button>
+              <button type="button" class="anchor-prompt" data-anchor-reply="what">What is lost labor?</button>
+              <button type="button" class="anchor-prompt" data-anchor-reply="cost">Why does bad process cost money?</button>
+              <button type="button" class="anchor-prompt" data-anchor-reply="examples">What causes this?</button>
+              <button type="button" class="anchor-prompt" data-anchor-reply="help">How can APC help?</button>
             </div>
-          </div>  
+          </div>
         </div>
       </div>
     </section>
@@ -983,86 +1019,9 @@
     <section id="about">
       <div class="wrap">
         <div class="section-head">
-          <h2>What APC does</h2>
+          <h2>What lost labor actually means</h2>
           <p>
-            Anchor Point Consulting helps organizations identify the tasks, workflows, and systems that are wasting time, creating friction, or making daily work harder than it needs to be, then improve them in practical and sustainable ways.
-          </p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-shape">
-              <span class="shape-circle"></span>
-              <span class="shape-square"></span>
-              <span class="shape-line"></span>
-            </div>
-            <h3>Fix what wastes time</h3>
-            <p>
-              That might be a reporting process that takes too long, a manual task that keeps getting repeated, a workflow that breaks down between people, or a system that no longer fits the job.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-shape">
-              <span class="shape-circle"></span>
-              <span class="shape-square"></span>
-              <span class="shape-line"></span>
-            </div>
-            <h3>Make the work behind the mission run better</h3>
-            <p>
-              APC focuses on practical improvements that save time, reduce confusion, and make daily operations easier to manage without adding unnecessary complexity.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="proof">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Why this matters</h2>
-          <p>
-            Lost labor rarely comes from one big failure. It usually comes from small problems that happen every day: manual work, duplicated effort, unclear handoffs, and broken processes.
-          </p>
-        </div>
-
-        <div class="stats-grid">
-          <div class="stat">
-            <div class="stat-number">31%</div>
-            <p>of U.S. employees were engaged in 2024, meaning most workers were not fully invested or energized at work.</p>
-            <p class="stat-source">Source: Gallup</p>
-          </div>
-
-          <div class="stat stat-featured">
-            <div class="stat-number">60%</div>
-            <p>of work time is often spent on “work about work” like chasing updates, coordination, and other overhead instead of skilled work.</p>
-            <p class="stat-source">Source: Asana</p>
-          </div>
-
-          <div class="stat">
-            <div class="stat-number">74.6%</div>
-            <p>of nonprofits reported job vacancies, and 28.1% reported longer waiting lists for services.</p>
-            <p class="stat-source">Source: National Council of Nonprofits</p>
-          </div>
-        </div>
-
-        <div class="proof-copy">
-          <p>
-            When teams are already stretched thin, wasted time does not stay behind the scenes. It affects staff capacity, service quality, and how many people an organization can realistically help.
-          </p>
-          <p>
-            That is why improving operations matters.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>How APC can help</h2>
-          <p>
-            APC helps organizations improve the operational side of their work in ways that are practical, clear, and maintainable.
+            Lost labor is paid time being consumed by work that should not take that much effort. People are still working. The labor is real. But part of that time is being burned by friction instead of producing useful output.
           </p>
         </div>
 
@@ -1073,9 +1032,9 @@
               <span class="shape-square"></span>
               <span class="shape-line"></span>
             </div>
-            <h3>Improve workflows</h3>
+            <h3>It hides inside normal work</h3>
             <p>
-              Clean up broken processes, reduce rework, and make handoffs, tracking, and day-to-day operations easier to manage.
+              Lost labor usually does not look dramatic. It shows up in repeated reporting, duplicate entry, unclear tracking, avoidable mistakes, manual cleanup, waiting on missing information, and messy handoffs.
             </p>
           </div>
 
@@ -1085,9 +1044,9 @@
               <span class="shape-square"></span>
               <span class="shape-line"></span>
             </div>
-            <h3>Reduce manual work</h3>
+            <h3>It is not a people problem</h3>
             <p>
-              Simplify repetitive tasks, organize operational systems, and introduce lightweight automation where it makes sense.
+              Most of the time, the problem is not laziness or lack of effort. It is that the process is forcing good people to work the long way, the manual way, or the confusing way.
             </p>
           </div>
 
@@ -1097,9 +1056,159 @@
               <span class="shape-square"></span>
               <span class="shape-line"></span>
             </div>
-            <h3>Build the right support</h3>
+            <h3>It compounds quietly</h3>
             <p>
-              Sometimes the answer is a better process. Sometimes it is a clearer system, a simple tool, or improved reporting and visibility.
+              A few extra minutes on one task may not look serious. But when the same friction repeats every day, across multiple people, it becomes a real operational cost.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cost">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Why lost time becomes expensive</h2>
+          <p>
+            The cost of lost labor is bigger than one wage calculation. Direct payroll cost matters, but the bigger damage often comes from what that wasted time delays, disrupts, or prevents.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat stat-featured">
+            <div class="stat-number">Direct payroll cost</div>
+            <p>You are paying for time that is being eaten by bad workflow, repeated effort, and unnecessary manual work.</p>
+            <p class="stat-source">The visible cost</p>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">Lower output</div>
+            <p>The same staff can complete less useful work because too much energy is being spent fighting the process instead of moving the work forward.</p>
+            <p class="stat-source">Capacity loss</p>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">Delays and rework</div>
+            <p>Bad process creates downstream delays, repeated corrections, bottlenecks, slower service, and work that has to be redone.</p>
+            <p class="stat-source">The hidden cost</p>
+          </div>
+        </div>
+
+        <div class="cost-panel">
+          <h3>A simple example</h3>
+          <p>
+            Imagine a monthly report that should be straightforward. Instead, someone has to export data from multiple places, clean it by hand, fix formatting, chase missing pieces, re-enter numbers, and answer follow-up questions because nobody fully trusts the result.
+          </p>
+
+          <div class="cost-grid">
+            <div class="cost-item">
+              <div class="cost-item-number">Extra labor</div>
+              <p>The report takes longer than it should because the process is inefficient.</p>
+            </div>
+
+            <div class="cost-item">
+              <div class="cost-item-number">Delayed work</div>
+              <p>That time comes out of other responsibilities the person should have been doing instead.</p>
+            </div>
+
+            <div class="cost-item">
+              <div class="cost-item-number">Repeat friction</div>
+              <p>If the same pain happens every week or every month, the cost keeps compounding.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="proof-copy">
+          <p>
+            For small businesses, this can show up as slower follow-through, weaker visibility, missed opportunities, and too much time spent managing around a problem.
+          </p>
+          <p>
+            For community-focused organizations, it can mean lower staff capacity, longer waits, slower response, and less time available for the people who depend on the work getting done.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="friction">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>What this usually looks like in real life</h2>
+          <p>
+            Lost labor often comes from familiar problems that teams have learned to tolerate, even when they know the work is being done the hard way.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-shape">
+              <span class="shape-circle"></span>
+              <span class="shape-square"></span>
+              <span class="shape-line"></span>
+            </div>
+            <h3>Repeated manual work</h3>
+            <p>
+              Rebuilding the same spreadsheet, cleaning the same export, entering the same information twice, copying and pasting between systems, or recreating the same report by hand.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-shape">
+              <span class="shape-circle"></span>
+              <span class="shape-square"></span>
+              <span class="shape-line"></span>
+            </div>
+            <h3>Broken workflow</h3>
+            <p>
+              Unclear ownership, slow handoffs, weak tracking, missing information, inconsistent steps, or a process that works only because staff keep patching it together.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How APC helps</h2>
+          <p>
+            APC helps organizations find where labor is being lost, understand why work is slowing down, and put practical improvements in place that actually fit the real workflow.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-shape">
+              <span class="shape-circle"></span>
+              <span class="shape-square"></span>
+              <span class="shape-line"></span>
+            </div>
+            <h3>Find the friction</h3>
+            <p>
+              Identify the tasks, handoffs, systems, and repeat problems that are quietly consuming staff time and creating drag.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-shape">
+              <span class="shape-circle"></span>
+              <span class="shape-square"></span>
+              <span class="shape-line"></span>
+            </div>
+            <h3>Fix what wastes time</h3>
+            <p>
+              Clean up workflows, reduce manual effort, improve tracking, and simplify repetitive processes so the work can move more cleanly.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-shape">
+              <span class="shape-circle"></span>
+              <span class="shape-square"></span>
+              <span class="shape-line"></span>
+            </div>
+            <h3>Build practical support</h3>
+            <p>
+              Sometimes the answer is a better process. Sometimes it is a simple tool, clearer reporting, or a more usable system. APC focuses on what will actually help.
             </p>
           </div>
         </div>
@@ -1111,7 +1220,7 @@
         <div class="section-head">
           <h2>Why APC feels different</h2>
           <p>
-            Many organizations are handed tools that look powerful but are difficult to maintain. APC takes a different approach.
+            APC focuses on practical, maintainable improvements instead of complexity for its own sake.
           </p>
         </div>
 
@@ -1124,7 +1233,7 @@
             </div>
             <h3>Built to be useful, not impressive</h3>
             <p>
-              The focus is on building improvements your team can actually use: practical, understandable, lightweight, and built around real workflows.
+              The goal is not to hand you something flashy that creates new problems. The goal is to leave you with workflows and systems that are clearer, lighter, and easier to live with.
             </p>
           </div>
 
@@ -1136,7 +1245,7 @@
             </div>
             <h3>A business with a community mindset</h3>
             <p>
-              APC is a business, but it is built with respect for limited staff time, real-world constraints, and the organizations doing important work with limited capacity.
+              APC is built around real-world constraints: limited staff time, limited capacity, and the need for solutions people can actually maintain.
             </p>
           </div>
         </div>
@@ -1159,6 +1268,9 @@
       <div class="wrap">
         <div class="section-head">
           <h2>A simple process</h2>
+          <p>
+            APC is designed to move from recognition to improvement without unnecessary complexity.
+          </p>
         </div>
 
         <div class="grid-3">
@@ -1170,7 +1282,7 @@
             </div>
             <h3>Assess</h3>
             <p>
-              Understand where time, effort, or clarity is being lost.
+              Understand where time, effort, and clarity are being lost in the real workflow.
             </p>
           </div>
 
@@ -1182,7 +1294,7 @@
             </div>
             <h3>Improve</h3>
             <p>
-              Design a practical fix that fits the real workflow.
+              Design a fix that matches the real work instead of forcing people into a system that does not fit.
             </p>
           </div>
 
@@ -1194,7 +1306,7 @@
             </div>
             <h3>Stabilize</h3>
             <p>
-              Leave the organization with something clear, useful, and sustainable.
+              Leave the organization with something useful, clear, and sustainable.
             </p>
           </div>
         </div>
@@ -1204,15 +1316,15 @@
     <section id="contact">
       <div class="wrap">
         <div class="cta">
-          <h2>Let’s improve how work gets done.</h2>
+          <h2>Let’s find where the time is going.</h2>
           <p>
-            If your team is dealing with repetitive tasks, messy workflows, weak visibility, or processes that no longer fit the job, let’s start a conversation.
+            If your team is dealing with repetitive work, slow handoffs, manual cleanup, weak tracking, or workflows that no longer fit the job, APC can help you identify the friction and reduce the drag.
           </p>
 
           <form action="https://formspree.io/f/xqeygwbq" method="POST" class="contact-form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="What operational problem are you trying to solve?" required></textarea>
+            <textarea name="message" placeholder="What task or process is taking longer than it should?" required></textarea>
             <button class="btn btn-primary" type="submit">Get in Touch</button>
           </form>
         </div>
@@ -1226,58 +1338,60 @@
       <div>apcquality.com | stephen@apcquality.com</div>
     </div>
   </footer>
-<script>
-  (function () {
-    const orb = document.getElementById("anchorOrb");
-    const screen = document.getElementById("anchorScreen");
-    const statusText = document.getElementById("anchorStatusText");
-    const statusDot = document.getElementById("anchorStatusDot");
-    const prompts = document.querySelectorAll(".anchor-prompt");
 
-    const replies = {
-      services: "APC helps organizations improve workflows, reduce manual work, clean up broken processes, organize operational systems, and build practical tools or reporting support when needed.",
-      example: "A common example is a team spending hours every month pulling reports, cleaning spreadsheets, and rebuilding the same information by hand. APC reviews the process, removes unnecessary steps, and creates a more reliable workflow so staff spend less time on admin work and more time on the work that matters.",
-      whyapc: "APC focuses on practical, maintainable improvements instead of pushing unnecessary complexity. The goal is to build systems and workflows your team can actually use, not tools that look impressive but are difficult to manage.",
-      fit: "APC is a good fit for small businesses and community-focused organizations that are losing time to repetitive tasks, unclear workflows, weak visibility, or systems that no longer fit the job."
-    };
+  <script>
+    (function () {
+      const orb = document.getElementById("anchorOrb");
+      const screen = document.getElementById("anchorScreen");
+      const statusText = document.getElementById("anchorStatusText");
+      const statusDot = document.getElementById("anchorStatusDot");
+      const prompts = document.querySelectorAll(".anchor-prompt");
 
-    function setThinkingState(isThinking) {
-      if (isThinking) {
-        orb.classList.add("is-typing");
-        statusDot.classList.add("is-active");
-        statusText.textContent = "Responding";
-      } else {
-        orb.classList.remove("is-typing");
-        statusDot.classList.remove("is-active");
-        statusText.textContent = "Site Guide Ready";
+      const replies = {
+        what: "Lost labor is paid time being consumed by work that should not take that much effort. People are still working, but part of that time is being burned by bad process, repeated steps, manual cleanup, or workflow friction.",
+        cost: "Bad process costs money because it does more than waste minutes. It reduces useful output, delays other work, creates rework, slows service, and lowers team capacity. The wage cost is real, but the downstream cost is often bigger.",
+        examples: "Common causes include repeated reporting, duplicate data entry, messy handoffs, weak tracking, unclear ownership, avoidable mistakes, manual spreadsheet cleanup, and systems people constantly have to work around.",
+        help: "APC helps organizations find where time is being lost, clean up broken workflows, reduce manual work, improve tracking, and build practical systems or tools that fit the real job."
+      };
+
+      function setThinkingState(isThinking) {
+        if (isThinking) {
+          orb.classList.add("is-typing");
+          statusDot.classList.add("is-active");
+          statusText.textContent = "Responding";
+        } else {
+          orb.classList.remove("is-typing");
+          statusDot.classList.remove("is-active");
+          statusText.textContent = "Site Guide Ready";
+        }
       }
-    }
 
-    function showMessage(text) {
-      screen.innerHTML = '<p class="anchor-message">' + text + '</p>';
-    }
+      function showMessage(text) {
+        screen.innerHTML = '<p class="anchor-message">' + text + '</p>';
+      }
 
-    prompts.forEach((button) => {
-      button.addEventListener("click", () => {
-        const key = button.getAttribute("data-anchor-reply");
-        const reply = replies[key] || "I can only answer a few simple questions right now.";
+      prompts.forEach((button) => {
+        button.addEventListener("click", () => {
+          const key = button.getAttribute("data-anchor-reply");
+          const reply = replies[key] || "I can only answer a few simple questions right now.";
 
-        showMessage("...");
-        setThinkingState(true);
+          showMessage("...");
+          setThinkingState(true);
 
-        window.setTimeout(() => {
-          showMessage(reply);
-          setThinkingState(false);
-        }, 850);
+          window.setTimeout(() => {
+            showMessage(reply);
+            setThinkingState(false);
+          }, 850);
+        });
       });
-    });
-  })();
-</script>
-<script>
-  function toggleMobileMenu(){
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('open');
-  }
-</script>
+    })();
+  </script>
+
+  <script>
+    function toggleMobileMenu(){
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
