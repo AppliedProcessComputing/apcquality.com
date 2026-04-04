@@ -633,25 +633,25 @@
     }
 
     .steps{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
 
-.step{
-  padding:24px 22px 22px;
-}
+    .step{
+      padding:24px 22px 22px;
+    }
 
-.step h3{
-  margin:0 0 8px;
-  font-size:1.02rem;
-  letter-spacing:-.02em;
-}
+    .step h3{
+      margin:0 0 8px;
+      font-size:1.02rem;
+      letter-spacing:-.02em;
+    }
 
-.step p{
-  margin:0;
-  color:var(--muted);
-}
+    .step p{
+      margin:0;
+      color:var(--muted);
+    }
 
     .cta{
       padding:30px;
@@ -858,18 +858,19 @@
           <li><a href="#apply">Apply</a></li>
         </ul>
       </nav>
+
       <button class="mobile-menu-toggle" type="button" onclick="toggleMobileMenu()">Menu</button>
     </div>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Main Site</a>
-    <a href="tools.html">Tools</a>
-    <a href="#about">About</a>
-    <a href="#criteria">Criteria</a>
-    <a href="#included">What’s Included</a>
-    <a href="#apply">Apply</a>
-  </div>
-</header>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Main Site</a>
+      <a href="tools.html">Tools</a>
+      <a href="#about" onclick="toggleMobileMenu()">About</a>
+      <a href="#criteria" onclick="toggleMobileMenu()">Criteria</a>
+      <a href="#included" onclick="toggleMobileMenu()">What’s Included</a>
+      <a href="#apply" onclick="toggleMobileMenu()">Apply</a>
+    </div>
+  </header>
 
   <main>
     <section class="hero">
@@ -878,7 +879,10 @@
           <div class="eyebrow">Community Support Through Practical Operational Help</div>
           <h1>Supporting local organizations by strengthening the work behind the mission.</h1>
           <p>
-            Local First is an Anchor Point Consulting program for community-based organizations serving local needs. It is designed for groups doing direct support work in areas like food access, housing stability, homelessness response, family support, recovery, youth services, elder services, and neighborhood-based community care. Selected organizations receive a free operational review and one practical process improvement at no cost.
+            Local First is an Anchor Point Consulting program for community-based organizations serving local needs. Selected organizations receive a free operational review and one focused improvement at no cost.
+          </p>
+          <p>
+            The goal is simple: reduce wasted time, improve how work gets done, and help organizations protect more of their limited capacity for the people who rely on them.
           </p>
 
           <div class="hero-actions">
@@ -888,8 +892,8 @@
           </div>
 
           <div class="mini-points">
-            <span>Free audit / consult</span>
-            <span>One free process improvement</span>
+            <span>Free operational review</span>
+            <span>One focused improvement</span>
             <span>Community-serving organizations only</span>
             <span>Practical, not overbuilt</span>
           </div>
@@ -911,7 +915,7 @@
 
             <div class="anchor-screen" id="anchorScreen">
               <p class="anchor-message">
-                Hello. I can answer a few quick questions about Local First.
+                Hello. I can answer a few quick questions about the Local First program.
               </p>
             </div>
 
@@ -929,9 +933,9 @@
     <section id="about">
       <div class="wrap">
         <div class="section-head">
-          <h2>About the Program</h2>
+          <h2>About the program</h2>
           <p>
-            Local First exists to help community-based organizations improve how work gets done without requiring them to commit to a full consulting engagement up front. The goal is to identify one meaningful area of wasted time, confusion, or rework and make a practical improvement that helps the organization serve people more effectively.
+            Local First exists to help community-based organizations improve how work gets done without needing to commit to a full consulting engagement up front. The goal is to identify one meaningful area of wasted time, confusion, or rework and make a practical improvement that helps the organization serve people more effectively.
           </p>
         </div>
 
@@ -944,7 +948,7 @@
             </div>
             <h3>Why APC offers this</h3>
             <p>
-              Many community organizations are doing essential work with limited time, limited staff, and limited operational support. Local First is APC’s way of contributing directly to the community by helping these organizations reduce wasted time, improve key processes, and strengthen the work they already do for local people.
+              Many community organizations are doing essential work with limited time, limited staff, and limited operational support. Local First is APC’s way of contributing directly by helping these organizations reduce wasted time, improve key processes, and strengthen the work they already do for local people.
             </p>
           </div>
 
@@ -956,7 +960,7 @@
             </div>
             <h3>What makes a good fit</h3>
             <p>
-              The strongest candidates are community-serving organizations with a clear operational pain point, a real need for process improvement, and a practical opportunity to save staff time or reduce friction in the delivery of services.
+              The strongest candidates are community-serving organizations with a clear operational pain point, a real need for process improvement, and a practical opportunity to save staff time or reduce friction in day-to-day service delivery.
             </p>
           </div>
         </div>
@@ -966,9 +970,9 @@
     <section id="criteria">
       <div class="wrap">
         <div class="section-head">
-          <h2>Selection Criteria</h2>
+          <h2>Selection criteria</h2>
           <p>
-            Local First is intended for community-serving organizations where a focused improvement can make a clear difference. Submission does not guarantee selection. Applications are reviewed based on mission fit, level of community impact, operational need, and whether the problem is realistic for the scope of the program.
+            Local First is intended for community-serving organizations where a focused improvement can make a clear difference. Submission does not guarantee selection. Applications are reviewed based on mission fit, community impact, operational need, and whether the problem is realistic for the scope of the program.
           </p>
         </div>
 
@@ -979,7 +983,7 @@
               <span class="shape-square"></span>
               <span class="shape-line"></span>
             </div>
-            <h3>Organization Type</h3>
+            <h3>Organization type</h3>
             <ul class="criteria-list">
               <li>Food pantry, shelter, housing support, or stabilization program</li>
               <li>Family support, recovery, health access, elder, disability, or youth-serving organization</li>
@@ -993,7 +997,7 @@
               <span class="shape-square"></span>
               <span class="shape-line"></span>
             </div>
-            <h3>Problem Fit</h3>
+            <h3>Problem fit</h3>
             <ul class="criteria-list">
               <li>Time is being lost to manual work, rework, confusion, or poor workflow design</li>
               <li>The issue affects day-to-day service delivery, staff capacity, coordination, or internal operations</li>
@@ -1021,7 +1025,7 @@
     <section id="included">
       <div class="wrap">
         <div class="section-head">
-          <h2>What’s Included</h2>
+          <h2>What’s included</h2>
           <p>
             Selected organizations receive a limited but useful engagement focused on one problem area. The point is not to deliver a large transformation project. The point is to solve one real operational problem well in a way that supports the organization’s ability to serve the community.
           </p>
@@ -1036,7 +1040,7 @@
             </div>
             <h3>Included at no cost</h3>
             <ul class="what-you-get">
-              <li>One free operational audit / consult</li>
+              <li>One free operational review / consult</li>
               <li>Review of an existing workflow, recurring task, or internal process</li>
               <li>One focused process improvement, workflow adjustment, or lightweight internal tool recommendation</li>
               <li>Clear summary of findings and next-step recommendation</li>
@@ -1064,7 +1068,7 @@
     <section>
       <div class="wrap">
         <div class="section-head">
-          <h2>How It Works</h2>
+          <h2>How it works</h2>
           <p>
             The process is straightforward. APC reviews submissions, selects organizations that fit the program, and then scopes one practical improvement area.
           </p>
@@ -1195,58 +1199,60 @@
       <div>apcquality.com | stephen@apcquality.com</div>
     </div>
   </footer>
-<script>
-  (function () {
-    const orb = document.getElementById("anchorOrb");
-    const screen = document.getElementById("anchorScreen");
-    const statusText = document.getElementById("anchorStatusText");
-    const statusDot = document.getElementById("anchorStatusDot");
-    const prompts = document.querySelectorAll(".anchor-prompt");
 
-    const replies = {
-      who: "Local First is for community-serving organizations working close to the ground in local communities. That includes food pantries, shelters, housing support organizations, elder services, family support programs, youth organizations, recovery programs, and other direct-service community organizations.",
-      included: "Selected organizations receive a free operational review and one focused process improvement, workflow adjustment, or practical recommendation at no cost.",
-      fit: "Strong fits include food and basic-needs organizations, housing and stabilization programs, health and recovery organizations, and elder, disability, youth, or neighborhood support groups.",
-      apply: "Use the application form below to submit your organization for review. APC reviews each submission based on mission fit, community impact, operational need, and whether the request fits the program scope."
-    };
+  <script>
+    (function () {
+      const orb = document.getElementById("anchorOrb");
+      const screen = document.getElementById("anchorScreen");
+      const statusText = document.getElementById("anchorStatusText");
+      const statusDot = document.getElementById("anchorStatusDot");
+      const prompts = document.querySelectorAll(".anchor-prompt");
 
-    function setThinkingState(isThinking) {
-      if (isThinking) {
-        orb.classList.add("is-typing");
-        statusDot.classList.add("is-active");
-        statusText.textContent = "Responding";
-      } else {
-        orb.classList.remove("is-typing");
-        statusDot.classList.remove("is-active");
-        statusText.textContent = "Program Guide Ready";
+      const replies = {
+        who: "Local First is for community-serving organizations working close to the ground in local communities. That includes food pantries, shelters, housing support organizations, elder services, family support programs, youth organizations, recovery programs, and other direct-service community organizations.",
+        included: "Selected organizations receive a free operational review and one focused process improvement, workflow adjustment, or practical recommendation at no cost.",
+        fit: "Strong fits include food and basic-needs organizations, housing and stabilization programs, health and recovery organizations, and elder, disability, youth, or neighborhood support groups.",
+        apply: "Use the application form below to submit your organization for review. APC reviews each submission based on mission fit, community impact, operational need, and whether the request fits the program scope."
+      };
+
+      function setThinkingState(isThinking) {
+        if (isThinking) {
+          orb.classList.add("is-typing");
+          statusDot.classList.add("is-active");
+          statusText.textContent = "Responding";
+        } else {
+          orb.classList.remove("is-typing");
+          statusDot.classList.remove("is-active");
+          statusText.textContent = "Program Guide Ready";
+        }
       }
-    }
 
-    function showMessage(text) {
-      screen.innerHTML = '<p class="anchor-message">' + text + '</p>';
-    }
+      function showMessage(text) {
+        screen.innerHTML = '<p class="anchor-message">' + text + '</p>';
+      }
 
-    prompts.forEach((button) => {
-      button.addEventListener("click", () => {
-        const key = button.getAttribute("data-anchor-reply");
-        const reply = replies[key] || "I can only answer a few simple questions right now.";
+      prompts.forEach((button) => {
+        button.addEventListener("click", () => {
+          const key = button.getAttribute("data-anchor-reply");
+          const reply = replies[key] || "I can only answer a few simple questions right now.";
 
-        showMessage("...");
-        setThinkingState(true);
+          showMessage("...");
+          setThinkingState(true);
 
-        window.setTimeout(() => {
-          showMessage(reply);
-          setThinkingState(false);
-        }, 850);
+          window.setTimeout(() => {
+            showMessage(reply);
+            setThinkingState(false);
+          }, 850);
+        });
       });
-    });
-  })();
-</script>
-<script>
-  function toggleMobileMenu(){
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('open');
-  }
-</script>
+    })();
+  </script>
+
+  <script>
+    function toggleMobileMenu(){
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
